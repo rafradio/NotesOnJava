@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    font-family: 'Roboto Flex', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #ececec;
+}
+.container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 500px;
+    width: 400px;  
+    border: 0.2px solid black;
+}
+#newNote {
+    display: flex;
+    width: 80%;
+    position: relative;
+    flex-direction: column;
+}
+.form-field__textarea {
+    height: 200px;
+}

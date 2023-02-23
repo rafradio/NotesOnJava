@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <title>Peple Controller</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="container">
+        <form id="newNote" class="newnote_content" th:method="POST" th:action="@{/index}" th:object="${note}">
+            <label for="title" class="form-field__label">Заголовок</label>
+            <input id="title" type="text" th:field="*{title}" class="form-field__input" name="title"><br>
+            <label for="bodyNote" class="form-field__label">Заметка</label>
+            <textarea id="bodyNote" class="form-field__textarea" th:field="*{body}" name="body"></textarea>
+            <br>
+            <input type="submit" value="Добавить" />
+        </form>
+    </div>
+    </body>
+</html>
