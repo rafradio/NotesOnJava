@@ -4,6 +4,9 @@
  */
 package com.rafael.notesSpringNew.notesSpringNew.models;
 
+import java.util.Date;  
+import java.time.LocalDateTime;
+
 public class Note {
     private int id;
     
@@ -11,8 +14,20 @@ public class Note {
     
     private String body;
     
-    private String data;
+    private Date data;
 
+    public Note() {
+        
+    }
+
+    public Note(int id, String title, String body, Date data) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+        this.data = data;
+    }
+    
+    
     public int getId() {
         return id;
     }
@@ -37,11 +52,11 @@ public class Note {
         this.body = body;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Date data) {
         this.data = data;
     }
     

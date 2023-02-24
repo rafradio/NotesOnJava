@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <title>Notes App GB</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="http://localhost:8080/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="container">
+        <div class="title_main"><h2>Список заметок</h2></div>
+        <div class="list_of_notes">
+            <div th:each="note : ${notes}">
+                <a th:href="@{note/{id}(id=${note.getId()})}" th:text="${note.getId()} + '. ' + ${note.getTitle()}"></a>
+            </div>
+        </div>
+        <div class="footer_main">
+                <div class="new_note"><p>Новая заметка</p></div>
+        </div>
+    </div>
+    <script src="MainModule.js" type="module"></script>
+    </body>
+</html>

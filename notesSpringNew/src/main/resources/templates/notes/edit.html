@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <title>Notes App GB</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="http://localhost:8080/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="container">
+            <form id="newNote" class="newnote_content" th:method="POST" th:action="@{/new}" th:object="${note}">
+                <label for="title" class="form-field__label">Заголовок</label>
+                <input id="title" type="text" th:field="*{title}" class="form-field__input" name="title"><br>
+                <div class="sql_info_note">
+                    <label for="idMysql" class="form-field__label_id">ID</label>
+                    <input id="idMysql" type="text" th:field="*{id}" class="form-field__input_id" name="idMysql" disabled><br>
+                    <label for="dateMysql" class="form-field__label_id">Дата</label>
+                    <input id="dateMysql" type="text" th:field="*{data}" class="form-field__input_date" name="dateMysql" disabled><br>
+                </div>
+                <label for="bodyNote" class="form-field__label">Заметка</label>
+                <textarea id="bodyNote" class="form-field__textarea" th:field="*{body}" name="body"></textarea>
+                <br>
+                <input type="submit" value="Редактировать" />
+            </form>
+        </div>
+    </body>
+</html>
