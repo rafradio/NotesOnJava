@@ -35,13 +35,25 @@ public class NotesDao {
         note.setData(date);
         jdbcTemplate.update("insert into javanotes (title, body, data) values(?,?,?)",
                 note.getTitle(), note.getBody(), note.getData());
-        System.out.println("Меня зовут " + note.getTitle() + "\n");
-        System.out.println("тело: " + note.getBody() + "\n");
+//        System.out.println("Меня зовут " + note.getTitle() + "\n");
+//        System.out.println("тело: " + note.getBody() + "\n");
     }
     
     public Note showNote(int id) {
         return jdbcTemplate.query("SELECT * FROM javanotes WHERE id=?", new Object[]{id}, new NoteMapper())
                 .stream().findAny().orElse(null);
         
+    }
+    
+    public void editNote(Note note, int id) {
+        Date date = Calendar.getInstance().getTime();
+        note.setData(date);
+        jdbcTemplate.update("UPDATE javanotes SET title=?, body=?, data=? WHERE id=?",
+                note.getTitle(), note.getBody(), note.getData(), id);
+        
+    }
+    
+    public void deleteNote(int id) {
+        jdbcTemplate.update("DELETE FROM javanotes WHERE id=?", id);
     }
 }

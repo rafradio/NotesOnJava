@@ -8,16 +8,16 @@
     </head>
     <body>
         <div class="container">
-        <div class="title_main"><h2>Список заметок</h2></div>
-        <div class="list_of_notes">
-            <div th:each="note : ${notes}">
-                <a th:href="@{note/{id}(id=${note.getId()})}" th:text="${note.getId()} + '. ' + ${note.getTitle()}"></a>
+            <div class="title_main"><h2>Список заметок</h2></div>
+            <div class="list_of_notes">
+                <div th:each="note : ${notes}">
+                    <a th:href="@{note/{id}(id=${note.getId()})}" th:text="${note.getId()} + '. ' + ${note.getTitle()}"></a>
+                </div>
+            </div>
+            <div class="footer_main">
+                    <div class="new_note"><p>Новая заметка</p></div>
             </div>
         </div>
-        <div class="footer_main">
-                <div class="new_note"><p>Новая заметка</p></div>
-        </div>
-    </div>
-    <script src="MainModule.js" type="module"></script>
+        <script src="http://localhost:8080/MainModule.js" type="module"></script>
     </body>
 </html>

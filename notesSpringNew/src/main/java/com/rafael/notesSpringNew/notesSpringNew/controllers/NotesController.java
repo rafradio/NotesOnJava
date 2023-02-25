@@ -38,7 +38,7 @@ public class NotesController {
     @PostMapping("/new")
     public String createNote(@ModelAttribute("note") Note note) {
         this.notesDao.saveNote(note);
-        return "redirect:/new";
+        return "redirect:/main";
     }
     
     @GetMapping("/main")
@@ -49,16 +49,28 @@ public class NotesController {
         return "notes/main";
     }
     
-    @GetMapping("note/{id}")
-    public String showPersonWeb(@PathVariable("id") int id, Model model) {
+    @GetMapping("/note/{id}")
+    public String showNote(@PathVariable("id") int id, Model model) {
         model.addAttribute("note", this.notesDao.showNote(id));
         return "notes/edit"; 
+    }
+    
+    @PostMapping("/{id}/edit")
+    public String editNote(@ModelAttribute("note") Note note, @PathVariable("id") int id) {
+        this.notesDao.editNote(note, id);
+        return "redirect:/main";
     }
     
     @GetMapping("/test")
     public String test(Model model) {
 //        model.addAttribute("note", new Note());
         return "notes/test";
+    }
+    
+    @PostMapping("/{id}/delete")
+    public String deleteNote(@ModelAttribute("note") Note note, @PathVariable("id") int id) {
+        this.notesDao.deleteNote(id);
+        return "redirect:/main";
     }
     
 }

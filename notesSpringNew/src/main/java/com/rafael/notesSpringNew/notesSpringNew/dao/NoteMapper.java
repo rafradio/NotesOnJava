@@ -23,6 +23,7 @@ public class NoteMapper implements RowMapper<Note> {
         note.setBody(rs.getString("body"));
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-mm-dd HH:mm:ss");
         Date date = rs.getDate("data");
+//        Date date1 = rs.getDate("data", "yyyy-mm-dd HH:mm:ss");
 //        LocalDateTime data = LocalDateTime.parse((String) rs.getDate("data"), myFormatObj);
         note.setData(date);
         return note;
