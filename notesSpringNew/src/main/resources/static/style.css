@@ -27,7 +27,7 @@ body {
     width: 80%;
     position: relative;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 .form-field__textarea {
     height: 200px;
@@ -102,4 +102,21 @@ body {
 .form-field__input_date {
     height: 15px;
     width: 170px;
+}
+#edit {
+    margin-top: 10px;
+}
+#delete {
+    margin-top: 10px;
+}
+.json_button {
+    width: 80%;
+    margin-bottom: 5px;
+}
+#noteSavings {
+    margin-bottom: 5px;
+    width: 80%;
+    height: 20px;
+    color: #3498db;
+    font-size: 10px;
 }

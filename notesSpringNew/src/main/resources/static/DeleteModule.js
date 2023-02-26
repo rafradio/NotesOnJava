@@ -1,3 +1,5 @@
+import {saveAction} from "http://localhost:8080/SaveData.js";
+
 function DeleteNote() {
     this.form = document.getElementById("newNote");
     this.deleteButton = document.getElementById("delete");
@@ -20,3 +22,5 @@ DeleteNote.prototype.initSettings = function() {
 }
 
 const deleteAction = new DeleteNote();
+saveAction.initSettings();
+saveAction.returnToMain();

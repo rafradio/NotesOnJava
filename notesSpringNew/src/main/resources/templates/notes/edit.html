@@ -19,11 +19,12 @@
                 </div>
                 <label for="bodyNote" class="form-field__label">Заметка</label>
                 <textarea id="bodyNote" class="form-field__textarea" th:field="*{body}" name="body"></textarea>
-                <br>
                 <button id="edit" type="submit" value="edit">Редактировать</button>
-                <br>
                 <button id="delete" type="submit" value="delete">Удалить</button>
             </form>
+            <button id="json" class="json_button" value="json">Сохранить в JSON</button>
+            <button id="return" class="json_button" value="return">Вернуться в main</button>
+            <div id="noteSavings"></div>
         </div>
         <script src="http://localhost:8080/DeleteModule.js" type="module"></script>
     </body>

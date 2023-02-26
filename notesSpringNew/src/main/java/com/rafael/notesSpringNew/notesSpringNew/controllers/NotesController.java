@@ -6,6 +6,9 @@ package com.rafael.notesSpringNew.notesSpringNew.controllers;
 
 import com.rafael.notesSpringNew.notesSpringNew.dao.NotesDao;
 import com.rafael.notesSpringNew.notesSpringNew.models.Note;
+import com.rafael.notesSpringNew.notesSpringNew.printToFiles.SaveToFile;
+import com.rafael.notesSpringNew.notesSpringNew.printToFiles.SaveToJson;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,10 +26,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class NotesController {
     private NotesDao notesDao;
+    private SaveToFile saveToFile;
 
     @Autowired
-    public NotesController(NotesDao notesDao) {
+    public NotesController(NotesDao notesDao, SaveToJson saveToFile) {
         this.notesDao = notesDao;
+        this.saveToFile = saveToFile;
     }
     
     @GetMapping("/new")
@@ -70,6 +75,14 @@ public class NotesController {
     @PostMapping("/{id}/delete")
     public String deleteNote(@ModelAttribute("note") Note note, @PathVariable("id") int id) {
         this.notesDao.deleteNote(id);
+        return "redirect:/main";
+    }
+    
+    @PostMapping("/ajaxpost")
+    public String saveJson(HttpServletRequest request) {
+        String data = request.getParameter("jsonData");
+//        System.out.println("hello ajax " + note.getTitle());
+        saveToFile.printTofile(request.getParameter("jsonData"), request.getParameter("id"));
         return "redirect:/main";
     }
     

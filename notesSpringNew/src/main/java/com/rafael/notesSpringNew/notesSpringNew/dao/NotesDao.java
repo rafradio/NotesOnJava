@@ -48,6 +48,7 @@ public class NotesDao {
     public void editNote(Note note, int id) {
         Date date = Calendar.getInstance().getTime();
         note.setData(date);
+        System.out.println("Проверяем дату " + note.getData() + "\n");
         jdbcTemplate.update("UPDATE javanotes SET title=?, body=?, data=? WHERE id=?",
                 note.getTitle(), note.getBody(), note.getData(), id);
         
