@@ -10,7 +10,7 @@ public class SaveToJson implements SaveToFile {
 
     @Override
     public void printTofile(String data, String id) {
-        String fileName = "note_id_" + id + ".json";
+        String fileName = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\data_json\\note_id_" + id + ".json";
         Path path = Paths.get(fileName);
         try 
             {  
