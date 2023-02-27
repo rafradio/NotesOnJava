@@ -25,7 +25,20 @@ public class NotesDao {
     }
     
     public List<Note> main(){
-        return jdbcTemplate.query("select * from javanotes", new NoteMapper());
+        this.notes = jdbcTemplate.query("select * from javanotes", new NoteMapper());
+        for (int i = 0; i < this.notes.size(); i++) {
+            boolean isNotSorted = true;
+            for (int j = 0; j < this.notes.size() - i - 1; j++) {
+                if (this.notes.get(j).getData().compareTo(this.notes.get(j + 1).getData()) < 0) {
+                    Note temp = this.notes.get(j);
+                    this.notes.set(j, this.notes.get(j + 1));
+                    this.notes.set(j + 1, temp);
+                    isNotSorted = false;
+                }
+            }
+            if (isNotSorted) break;
+        }
+        return notes;
     }
     
     public void saveNote(Note note) {
